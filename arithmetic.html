@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Math Practice</title>
+		<meta charset = "UTF-8">
+	</head>
+	<body style = "background-color: black;">
+		<!-- container for instructions and buttons -->
+		<div style = "width: 40%; position: absolute; top: 30%; left: 30%;" id = "holder">
+			<!-- instructions -->
+			<div style = "color: gray; text-align: center; font-size: 40px;" id = "arithInstructions">
+				For this portion of the task, we want you to practice answering math equations that will show up during the main task.
+			</div>
+			<br>
+			<!-- next button -->
+			<div style = "color: gray; font-weight: bold; text-align: center; font-size: 40px; position: absolute; right: 5%; width: 50px; border: 2px groove gray; cursor: pointer;" onclick="next()" id="next">
+				>
+			</div>
+			<!-- previous button -->
+			<div style = "display: none; color: gray; font-weight: bold; text-align: center; font-size: 40px; position: absolute; left: 5%; width: 50px; border: 2px groove gray; cursor: pointer;" onclick="previous()" id="previous">
+				<
+			</div>
+			<!-- button to begin the arithmetic task -->
+			<div style = "display: none; color: gray; font-size: 25px; font-weight: bold; text-align: center; position: absolute; left: 39.5%; width: 100px; border: 2px groove gray; cursor: pointer;" id = "arith" onclick = "arithmetic()">
+				Begin
+			</div>
+		</div>
+		<!-- div for showing prompts -->
+		<div style = "display: block; color: gray; text-align: center; font-size: 100px; padding: 0px; margin:0px; width: 100%; position: absolute; top: 45%; left: 0%;" id = "attend">
+		</div>
+		<!-- grid div for showing keys on the bottom -->
+		<div style = "position: absolute; display: none; grid-template-columns: auto auto; grid-gap: 10px; bottom: 0px; width: 100%; height: 60px; left: 0%;" id= "helper">
+			<div style = "color: white; text-align: center; padding: 18px 0px; background: rgb(50,50,50); font-size: 20px;">
+			correct = A
+			</div>
+			<div style = "color: white; text-align: center; padding: 18px 0px; background: rgb(50,50,50); font-size: 20px;">
+			incorrect = L
+			</div>
+		</div>		
+	</body>
+	<script src = "shuffle.js"></script>
+	<script src = "eventTimer.js"></script>
+	<script src = "arithMenu.js"></script>
+	<script src = "arithmetic.js"></script>
+</html>

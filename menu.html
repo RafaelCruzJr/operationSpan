@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Menu</title>
+		<meta charset = "UTF-8">
+		<script type="text/javascript">
+			function formSubmit() {
+				document.getElementById('dataForm').submit();
+			}
+		</script>
+	</head>
+	<body style = "background-color: black;">
+		<!-- container for instructions and buttons -->
+		<div style = "width: 40%; position: absolute; top: 30%; left: 30%;">
+			<!-- instructions -->
+			<div style = "color: gray; text-align: center; font-size: 40px;" id = "menuInstructions">
+				Welcome <br> You will be performing a working memory task. Please click the button when you are ready for the first part of the task.	
+			</div>
+			<br>
+			<!-- button to begin arithmetic -->
+			<div style = "color: gray; font-size: 25px; font-weight: bold; text-align: center; position: absolute; left: 39.5%; width: 100px; border: 2px groove gray; cursor: pointer;" id = "arithButton" onclick = "window.open('arithmetic.html')">
+				Begin
+			</div>
+			<!-- button to begin operation span -->
+			<div style = "display:  none; color: gray; font-size: 25px; font-weight: bold; text-align: center; position: absolute; left: 39.5%; width: 100px; border: 2px groove gray; cursor: pointer;" id = "opButton" onclick = "window.open('opSpan.html')">
+				Begin
+			</div>
+			<!-- button to submit data -->
+			<div style = "display:  none; color: gray; font-size: 25px; font-weight: bold; text-align: center; position: absolute; left: 39.5%; width: 100px; border: 2px groove gray; cursor: pointer;" id = "formButton" onclick = "formSubmit()">
+				Submit
+			</div>
+		</div>
+		<form id="dataForm" method="POST"> <!-- make sure to add action to form if you want to store data -->
+			<input type="hidden" id="arithAVG" name="arithAVG" value="">
+			<input type="hidden" id="arithSD" name="arithSD" value="">
+			<input type="hidden" id="accuracy" name="accuracy" value="">
+			<input type="hidden" id="setStor" name="setStor" value="">
+			<input type="hidden" id="responses" name="responses" value="">
+			<input type="hidden" id="ExpName" name="ExpName" value="opSpan">
+		</form>
+	</body>
+	<script src = "shuffle.js"></script>
+	<script src = "eventTimer.js"></script>
+	<script src = "arithmetic.js"></script>
+	<script src = "opSpan.js"></script>
+</html>
