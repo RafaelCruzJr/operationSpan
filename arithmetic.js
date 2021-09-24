@@ -5,7 +5,7 @@ function arithmetic() {
 	trialList = [], // set to store math equations
 	t0, // time at t0
 	t1, // time at t1
-	cbAnswer = Number(opener.document.getElementById('cbAnswer').value);
+	cbAnswer = Number(opener.document.getElementById('cbAnswer').value),
 	attend = document.getElementById("attend"); // grab element to show prompts
 
 	document.getElementById("holder").style.display = 'none'; // remove instructions
