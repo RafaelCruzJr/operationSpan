@@ -3,12 +3,6 @@
 	<head>
 		<title>Menu</title>
 		<meta charset = "UTF-8">
-		<script type="text/javascript">
-			document.getElementById('cbAnswer').value = [1,0][Math.floor(Math.random() * 2)]; // counterbalance which buttons to press
-			function formSubmit() {
-				document.getElementById('dataForm').submit();
-			}
-		</script>
 	</head>
 	<body style = "background-color: black;">
 		<!-- container for instructions and buttons -->
@@ -41,6 +35,12 @@
 			<input type="hidden" id="ExpName" name="ExpName" value="opSpan">
 		</form>
 	</body>
+	<script type="text/javascript">
+		document.getElementById('cbAnswer').value = [1,0][Math.floor(Math.random() * 2)]; // counterbalance which buttons to press
+		function formSubmit() {
+			document.getElementById('dataForm').submit();
+		}
+	</script>
 	<script src = "shuffle.js"></script>
 	<script src = "eventTimer.js"></script>
 	<script src = "arithmetic.js"></script>
