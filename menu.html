@@ -4,6 +4,7 @@
 		<title>Menu</title>
 		<meta charset = "UTF-8">
 		<script type="text/javascript">
+			document.getElementById('cbAnswer').value = [1,0][Math.floor(Math.random() * 2)]; // counterbalance which buttons to press
 			function formSubmit() {
 				document.getElementById('dataForm').submit();
 			}
