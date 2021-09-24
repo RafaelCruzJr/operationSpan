@@ -2,7 +2,8 @@ function runPractice() {
 	var allTrials = [['D','6 / 2 + 5 = 9',0],['K','5 * 3 - 2 = 13',1],['I','4 * 2 + 6 = 18',1],['P','8 / 2 - 3 = 1',1],['H','9 * 2 - 3 = 4',0]], // full set of practice trials
 		timePrompt = Number(opener.document.getElementById("arithAVG").value), // grab average from arithmetic
 		SD = Number(opener.document.getElementById("arithSD").value),// grab SD from arithmetic
-		timerID, // initialize eventTimer ID
+		cbAnswer = Number(opener.document.getElementById('cbAnswer').value),
+	    	timerID, // initialize eventTimer ID
 		trialN = 0, // initialize trial number
 		labels = ['lab1','lab2','lab3','lab4','lab5','lab6','lab7','lab8','lab9','lab10','lab11','lab12'], // labels associated with response screen
 		inputs = ['let1','let2','let3','let4','let5','let6','let7','let8','let9','let10','let11','let12'], // actual inputs
@@ -31,21 +32,40 @@ function runPractice() {
 	} // make removing attention simple
 
 	function mathKeys(event) {
-		switch (event.key) {
-			case 'a':
-				document.removeEventListener('keydown',mathKeys); // remove eventListener
-				removeAttend();
-				eventTimer.cancelRequest(timerID); // stop "slow" from showing
-				eventTimer.setTimeout(endTrial,200); // end current trial
-				break;
-			case 'l':
-				document.removeEventListener('keydown',mathKeys);
-				removeAttend();
-				eventTimer.cancelRequest(timerID);				
-				eventTimer.setTimeout(endTrial,200);
-				break;
-			default:
-				break;					
+		if (cbAnswer == 1) {
+			switch (event.key) {
+				case 'a':
+					document.removeEventListener('keydown',mathKeys); // remove eventListener
+					removeAttend();
+					eventTimer.cancelRequest(timerID); // stop "slow" from showing
+					eventTimer.setTimeout(endTrial,200); // end current trial
+					break;
+				case 'l':
+					document.removeEventListener('keydown',mathKeys);
+					removeAttend();
+					eventTimer.cancelRequest(timerID);				
+					eventTimer.setTimeout(endTrial,200);
+					break;
+				default:
+					break;					
+			}
+		} else {
+			switch (event.key) {
+				case 'l':
+					document.removeEventListener('keydown',mathKeys); // remove eventListener
+					removeAttend();
+					eventTimer.cancelRequest(timerID); // stop "slow" from showing
+					eventTimer.setTimeout(endTrial,200); // end current trial
+					break;
+				case 'a':
+					document.removeEventListener('keydown',mathKeys);
+					removeAttend();
+					eventTimer.cancelRequest(timerID);				
+					eventTimer.setTimeout(endTrial,200);
+					break;
+				default:
+					break;					
+			}
 		}
 	}
 
