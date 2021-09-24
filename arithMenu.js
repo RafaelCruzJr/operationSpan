@@ -2,12 +2,10 @@ var text = document.getElementById('arithInstructions'), // grab instructions el
 	nextButton = document.getElementById('next'),  // grab next button element
 	previousButton = document.getElementById('previous'), // grab previous button element
 	arith = document.getElementById('arith'), // grab arithmetic button element
-    	correctIncorrect = [1,0][Math.floor(Math.random() * 2)], // counterbalance which buttons to press
+    	cbAnswer = opener.document.getElementById('cbAnswer').value,
 	numIns = 0; // initialize instruction number
 
-opener.document.getElementById('cbAnswer').value = correctIncorrect;
-
-if (correctIncorrect == 1) {
+if (cbAnswer == 1) {
 	var A = "'A'",
 		B = "'L'";
 } else {
