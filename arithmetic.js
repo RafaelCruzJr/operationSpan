@@ -5,6 +5,7 @@ function arithmetic() {
 	trialList = [], // set to store math equations
 	t0, // time at t0
 	t1, // time at t1
+	cbAnswer = Number(opener.document.getElementById('cbAnswer').value);
 	attend = document.getElementById("attend"); // grab element to show prompts
 
 	document.getElementById("holder").style.display = 'none'; // remove instructions
@@ -50,39 +51,76 @@ function arithmetic() {
 	} // return whether value is a positive number
 
 	function keys(event) { // eventListener for equations
-		switch (event.key) {
-			case 'a':
-				document.removeEventListener('keydown', keys); // remove the eventListener
-				if (truth[0] == 1) { // if equation is correct then add to accuracy
-					accuracy++;
-				}
-				truth.shift(); // remove current trial
-				t1 = performance.now(); // grab current time
-				RTs.push(t1-t0); // subtract current time from previous and save to RTs
-				removeAttend(); // remove prompt
-				eventTimer.setMultipleTO([ // display asterisks, remove asterisks, then go to next trial
-					[displayAttend, randomWholeNumber(50,100)],
-					[removeAttend, randomWholeNumber(150,200)],
-					[runIt, randomWholeNumber(250,300)]
-				]);
-				break;
-			case 'l':
-				document.removeEventListener('keydown', keys);
-				if (truth[0] == 0) { // if equation is incorrect then add to accuracy
-					accuracy++;
-				}
-				truth.shift();
-				t1 = performance.now();
-				RTs.push(t1-t0);
-				removeAttend();
-				eventTimer.setMultipleTO([
-					[displayAttend, randomWholeNumber(50,100)],
-					[removeAttend, randomWholeNumber(150,200)],
-					[runIt, randomWholeNumber(250,300)]
-				]);
-				break;
-			default:
-				break;					
+		if (cbAnswer == 1) {
+			switch (event.key) {
+				case 'a':
+					document.removeEventListener('keydown', keys); // remove the eventListener
+					if (truth[0] == 1) { // if equation is correct then add to accuracy
+						accuracy++;
+					}
+					truth.shift(); // remove current trial
+					t1 = performance.now(); // grab current time
+					RTs.push(t1-t0); // subtract current time from previous and save to RTs
+					removeAttend(); // remove prompt
+					eventTimer.setMultipleTO([ // display asterisks, remove asterisks, then go to next trial
+						[displayAttend, randomWholeNumber(50,100)],
+						[removeAttend, randomWholeNumber(150,200)],
+						[runIt, randomWholeNumber(250,300)]
+					]);
+					break;
+				case 'l':
+					document.removeEventListener('keydown', keys);
+					if (truth[0] == 0) { // if equation is incorrect then add to accuracy
+						accuracy++;
+					}
+					truth.shift();
+					t1 = performance.now();
+					RTs.push(t1-t0);
+					removeAttend();
+					eventTimer.setMultipleTO([
+						[displayAttend, randomWholeNumber(50,100)],
+						[removeAttend, randomWholeNumber(150,200)],
+						[runIt, randomWholeNumber(250,300)]
+					]);
+					break;
+				default:
+					break;					
+			}
+		} else {
+			switch (event.key) {
+				case 'l':
+					document.removeEventListener('keydown', keys);
+					if (truth[0] == 1) {
+						accuracy++;
+					}
+					truth.shift();
+					t1 = performance.now();
+					RTs.push(t1-t0);
+					removeAttend();
+					eventTimer.setMultipleTO([
+						[displayAttend, randomWholeNumber(50,100)],
+						[removeAttend, randomWholeNumber(150,200)],
+						[runIt, randomWholeNumber(250,300)]
+					]);
+					break;
+				case 'a':
+					document.removeEventListener('keydown', keys);
+					if (truth[0] == 0) {
+						accuracy++;
+					}
+					truth.shift();
+					t1 = performance.now();
+					RTs.push(t1-t0);
+					removeAttend();
+					eventTimer.setMultipleTO([
+						[displayAttend, randomWholeNumber(50,100)],
+						[removeAttend, randomWholeNumber(150,200)],
+						[runIt, randomWholeNumber(250,300)]
+					]);
+					break;
+				default:
+					break;					
+			}			
 		}
 	}
 
