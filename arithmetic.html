@@ -30,14 +30,22 @@
 		</div>
 		<!-- grid div for showing keys on the bottom -->
 		<div style = "position: absolute; display: none; grid-template-columns: auto auto; grid-gap: 10px; bottom: 0px; width: 100%; height: 60px; left: 0%;" id= "helper">
-			<div style = "color: white; text-align: center; padding: 18px 0px; background: rgb(50,50,50); font-size: 20px;">
-			correct = A
+			<div style = "color: white; text-align: center; padding: 18px 0px; background: rgb(50,50,50); font-size: 20px;" id= "left">
 			</div>
-			<div style = "color: white; text-align: center; padding: 18px 0px; background: rgb(50,50,50); font-size: 20px;">
-			incorrect = L
+			<div style = "color: white; text-align: center; padding: 18px 0px; background: rgb(50,50,50); font-size: 20px;" id= "right">
 			</div>
 		</div>		
 	</body>
+	<script type="text/javascript">
+		cbAnswer = opener.document.getElementById('cbAnswer').value;
+		if (cbAnswer == 1) {
+			document.getElementById('left').innerHTML = 'A = correct';
+			document.getElementById('right').innerHTML = 'L = incorrect';
+		} else {
+			document.getElementById('left').innerHTML = 'A = incorrect';
+			document.getElementById('right').innerHTML = 'L = correct';
+		}
+	</script>
 	<script src = "shuffle.js"></script>
 	<script src = "eventTimer.js"></script>
 	<script src = "arithMenu.js"></script>
