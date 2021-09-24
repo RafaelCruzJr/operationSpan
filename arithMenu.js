@@ -2,12 +2,29 @@ var text = document.getElementById('arithInstructions'), // grab instructions el
 	nextButton = document.getElementById('next'),  // grab next button element
 	previousButton = document.getElementById('previous'), // grab previous button element
 	arith = document.getElementById('arith'), // grab arithmetic button element
+    	correctIncorrect = [1,0][Math.floor(Math.random() * 2)], // counterbalance which buttons to press
 	instructions = [
 	"For this portion of the task, we want you to practice answering math equations that will show up during the main task.",
 	"Math equations will be displayed to you. You must press 'A' if the answer is correct or 'L' if it is not.",
 	"Please try to respond as quickly as possible without making mistakes.",
 	"Press the button when you are ready to begin."], // series of instructions
 	numIns = 0; // initialize instruction number
+
+opener.document.getElementById('cbAnswer').value = correctIncorrect;
+
+if (correctIncorrect == 1) {
+	var A = "'A'",
+		B = "'L'";
+} else {
+	var A = "'L'",
+		B = "'A'";
+}
+
+var	instructions = [
+	"For this portion of the task, we want you to practice answering math equations that will show up during the main task.",
+	`Math equations will be displayed to you. You must press ${A} if the answer is correct or ${B} if it is not.`,
+	"Please try to respond as quickly as possible without making mistakes.",
+	"Press the button when you are ready to begin."]; // series of instructions
 
 function next() { // onClick function for next button
 	numIns++;
