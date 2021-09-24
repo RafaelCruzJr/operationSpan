@@ -3,6 +3,7 @@ function runSpan() {
 		spanSize = [3,4,5,6,7,8,9], // possible span sizes
 		timePrompt = Number(opener.document.getElementById("arithAVG").value), // grab RT mean
 		SD = Number(opener.document.getElementById("arithSD").value), // grab RT SD
+	    	cbAnswer = Number(opener.document.getElementById('cbAnswer').value),
 		trialN = 0, // initialize trial number
 		setN = 0, // initialize set number
 		accuracy = 0, // initialize subject accuracy
@@ -57,28 +58,53 @@ function runSpan() {
 	}
 
 	function mathKeys(event) {
-		switch (event.key) {
-			case 'a':
-				document.removeEventListener('keydown',mathKeys);
-				if (allTrials[setN][trialN][2] == 1) {
-					accuracy++;
-				}
-				removeAttend();
-				eventTimer.cancelRequest(timerID);				
-				eventTimer.setTimeout(endTrial,200);
-				break;
-			case 'l':
-				document.removeEventListener('keydown',mathKeys);
-				if (allTrials[setN][trialN][2] == 0) {
-					accuracy++;
-				}
-				removeAttend();
-				eventTimer.cancelRequest(timerID);				
-				eventTimer.setTimeout(endTrial,200);
-				break;
-			default:
-				break;					
-		}
+		if (cbAnswer == 1) {
+			switch (event.key) {
+				case 'a':
+					document.removeEventListener('keydown',mathKeys);
+					if (allTrials[setN][trialN][2] == 1) {
+						accuracy++;
+					}
+					removeAttend();
+					eventTimer.cancelRequest(timerID);				
+					eventTimer.setTimeout(endTrial,200);
+					break;
+				case 'l':
+					document.removeEventListener('keydown',mathKeys);
+					if (allTrials[setN][trialN][2] == 0) {
+						accuracy++;
+					}
+					removeAttend();
+					eventTimer.cancelRequest(timerID);				
+					eventTimer.setTimeout(endTrial,200);
+					break;
+				default:
+					break;					
+			}
+		} else {
+			switch (event.key) {
+				case 'l':
+					document.removeEventListener('keydown',mathKeys);
+					if (allTrials[setN][trialN][2] == 1) {
+						accuracy++;
+					}
+					removeAttend();
+					eventTimer.cancelRequest(timerID);				
+					eventTimer.setTimeout(endTrial,200);
+					break;
+				case 'a':
+					document.removeEventListener('keydown',mathKeys);
+					if (allTrials[setN][trialN][2] == 0) {
+						accuracy++;
+					}
+					removeAttend();
+					eventTimer.cancelRequest(timerID);				
+					eventTimer.setTimeout(endTrial,200);
+					break;
+				default:
+					break;					
+			}	
+		}		
 	}
 
 	function prepareOneSpan(n) {
