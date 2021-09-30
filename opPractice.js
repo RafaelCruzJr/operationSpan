@@ -1,5 +1,5 @@
 function runPractice() {
-	var allTrials = [['D','6 / 2 + 5 = 9',0],['K','5 * 3 - 2 = 13',1],['I','4 * 2 + 6 = 18',1],['P','8 / 2 - 3 = 1',1],['H','9 * 2 - 3 = 4',0]], // full set of practice trials
+	var allTrials = [['D','6 / 2 + 5 = 9',0],['K','5 x 3 - 2 = 13',1],['I','4 x 2 + 6 = 18',1],['P','8 / 2 - 3 = 1',1],['H','9 x 2 - 3 = 4',0]], // full set of practice trials
 		timePrompt = Number(opener.document.getElementById("arithAVG").value), // grab average from arithmetic
 		SD = Number(opener.document.getElementById("arithSD").value),// grab SD from arithmetic
 		cbAnswer = Number(opener.document.getElementById('cbAnswer').value),
